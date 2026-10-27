@@ -1,0 +1,56 @@
+market,index,group,model,params,loglik,AIC,BIC
+United States,S&P 500,Developed,gbm,2,15829.3,-31654.7,-31641.5
+United States,S&P 500,Developed,merton,5,16762.4,-33514.7,-33481.9
+United States,S&P 500,Developed,kou,6,16795.4,-33578.8,-33539.3
+United States,S&P 500,Developed,garch,4,17289.9,-34571.8,-34545.5
+United States,S&P 500,Developed,garch_jump,7,17452.5,-34890.9,-34844.9
+Japan,Nikkei 225,Developed,gbm,2,14459.9,-28915.8,-28902.7
+Japan,Nikkei 225,Developed,merton,5,14960.2,-29910.5,-29877.8
+Japan,Nikkei 225,Developed,kou,6,14975.2,-29938.4,-29899.2
+Japan,Nikkei 225,Developed,garch,4,15231.4,-30454.8,-30428.7
+Japan,Nikkei 225,Developed,garch_jump,7,15312.7,-30611.4,-30565.6
+United Kingdom,FTSE 100,Developed,gbm,2,16409.4,-32814.8,-32801.6
+United Kingdom,FTSE 100,Developed,merton,5,17128.5,-34247.1,-34214.2
+United Kingdom,FTSE 100,Developed,kou,6,17146.2,-34280.3,-34240.9
+United Kingdom,FTSE 100,Developed,garch,4,17529,-35050,-35023.7
+United Kingdom,FTSE 100,Developed,garch_jump,7,17628,-35242,-35195.9
+Germany,DAX,Developed,gbm,2,15596.9,-31189.9,-31176.7
+Germany,DAX,Developed,merton,5,16167.4,-32324.8,-32291.9
+Germany,DAX,Developed,kou,6,16188.9,-32365.8,-32326.3
+Germany,DAX,Developed,garch,4,16472.6,-32937.1,-32910.8
+Germany,DAX,Developed,garch_jump,7,16590.1,-33166.1,-33120.1
+Australia,S&P/ASX 200,Developed,gbm,2,16661.5,-33319.1,-33305.9
+Australia,S&P/ASX 200,Developed,merton,5,17195.7,-34381.5,-34348.6
+Australia,S&P/ASX 200,Developed,kou,6,17213.5,-34415,-34375.6
+Australia,S&P/ASX 200,Developed,garch,4,17618,-35228,-35201.7
+Australia,S&P/ASX 200,Developed,garch_jump,7,17696.1,-35378.2,-35332.2
+Brazil,Ibovespa,Emerging,gbm,2,13977.2,-27950.3,-27937.2
+Brazil,Ibovespa,Emerging,merton,5,14447.5,-28885,-28852.2
+Brazil,Ibovespa,Emerging,kou,6,14463.2,-28914.3,-28875
+Brazil,Ibovespa,Emerging,garch,4,14750.1,-29492.3,-29466
+Brazil,Ibovespa,Emerging,garch_jump,7,14814.7,-29615.3,-29569.4
+Mexico,IPC,Emerging,gbm,2,15981.4,-31958.7,-31945.6
+Mexico,IPC,Emerging,merton,5,16422.4,-32834.9,-32802
+Mexico,IPC,Emerging,kou,6,16431.9,-32851.7,-32812.3
+Mexico,IPC,Emerging,garch,4,16715.4,-33422.8,-33396.5
+Mexico,IPC,Emerging,garch_jump,7,16801.1,-33588.1,-33542.1
+India,BSE Sensex,Emerging,gbm,2,15005.2,-30006.4,-29993.3
+India,BSE Sensex,Emerging,merton,5,15712.4,-31414.8,-31382.1
+India,BSE Sensex,Emerging,kou,6,15728.7,-31445.4,-31406.1
+India,BSE Sensex,Emerging,garch,4,16178.9,-32349.8,-32323.6
+India,BSE Sensex,Emerging,garch_jump,7,16255.7,-32497.5,-32451.6
+China,SSE Composite,Emerging,gbm,2,14230.4,-28456.8,-28443.7
+China,SSE Composite,Emerging,merton,5,14869.5,-29729,-29696.4
+China,SSE Composite,Emerging,kou,6,14900.8,-29789.6,-29750.4
+China,SSE Composite,Emerging,garch,4,15091,-30174,-30147.9
+China,SSE Composite,Emerging,garch_jump,7,15294.7,-30575.5,-30529.7
+South Africa,FTSE/JSE Top 40,Emerging,gbm,2,15361.7,-30719.5,-30706.4
+South Africa,FTSE/JSE Top 40,Emerging,merton,5,15717.3,-31424.6,-31391.8
+South Africa,FTSE/JSE Top 40,Emerging,kou,6,15727,-31442,-31402.6
+South Africa,FTSE/JSE Top 40,Emerging,garch,4,16095.2,-32182.3,-32156.1
+South Africa,FTSE/JSE Top 40,Emerging,garch_jump,7,16138.8,-32263.5,-32217.6
+Indonesia,Jakarta Composite,Emerging,gbm,2,15161.9,-30319.7,-30306.6
+Indonesia,Jakarta Composite,Emerging,merton,5,15826.3,-31642.7,-31610
+Indonesia,Jakarta Composite,Emerging,kou,6,15840.4,-31668.7,-31629.5
+Indonesia,Jakarta Composite,Emerging,garch,4,16088.8,-32169.6,-32143.4
+Indonesia,Jakarta Composite,Emerging,garch_jump,7,16233.4,-32452.7,-32407
