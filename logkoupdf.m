@@ -1,15 +1,20 @@
-function pdflog = logkoupdf(r,dt,mu,sigma,lambda,p,q,eta1,eta2)
+function pdflog = logkoupdf(r,dt,mu,sigma,lambda,p,eta1,eta2)
+%LOGKOUPDF Density of one-period log returns under the Kou (2002) model.
+%   pdflog = LOGKOUPDF(r,dt,mu,sigma,lambda,p,eta1,eta2) uses the
+%   small-dt approximation (at most one jump per period). Up jumps occur
+%   with probability p and are exponential with rate eta1; down jumps
+%   occur with probability 1-p and are exponential with rate eta2.
+%   mu and sigma are the annual drift and volatility, lambda is the
+%   annual jump intensity and dt is the period length in years.
+    q = 1 - p;
+    x = r - (mu - sigma^2/2)*dt;      % return net of diffusion drift
+    sd = sigma*sqrt(dt);
+    diffusion = normpdf(x, 0, sd);
     if lambda > 0
-        f1 = ((1-lambda*dt)/(sigma*sqrt(dt)))*(1/sqrt(2*pi*sigma^2*dt))*exp(-(r-(mu-sigma^2/2)*dt).^2 /(2*sigma^2*dt));
-        up = p*eta1*exp(0.5*sigma^2*eta1^2*dt)*exp(-(r-(mu-sigma^2/2)*dt)*eta1).*normalize((r-(mu-sigma^2/2)*dt - (eta1*sigma^2*dt))/(sigma*sqrt(dt)));
-        down = q*eta2*exp(0.5*sigma^2*eta2^2*dt)*exp(-(r-(mu-sigma^2/2)*dt)*eta2).*normalize(-(r-(mu-sigma^2/2)*dt + (eta2*sigma^2*dt))/(sigma*sqrt(dt)));
-        %up = p*eta1*exp(0.5*sigma^2*eta1^2*dt)*exp(-(r-(mu-sigma^2/2)*dt)*eta1)*int((r-(mu-sigma^2/2)*dt - (eta1*sigma^2*dt))/(sigma*sqrt(dt)),[0,100000]);
-        %down = q*eta2*exp(0.5*sigma^2*eta2^2*dt)*exp(-(r-(mu-sigma^2/2)*dt)*eta2)*int(-(r-(mu-sigma^2/2)*dt + (eta2*sigma^2*dt))/(sigma*sqrt(dt)),[-100000,0]);
-        
-        pdflog = f1 + (lambda*dt*(up+down));
+        up = p*eta1*exp(0.5*sigma^2*eta1^2*dt)*exp(-x*eta1).*normcdf((x - eta1*sigma^2*dt)/sd);
+        down = q*eta2*exp(0.5*sigma^2*eta2^2*dt)*exp(x*eta2).*normcdf(-(x + eta2*sigma^2*dt)/sd);
+        pdflog = (1 - lambda*dt)*diffusion + lambda*dt*(up + down);
     else
-        pdflog = 1/sqrt(2*pi*sigma^2)*exp(-(r-(mu-sigma^2/2)*dt).^2/(2*(sigma^2*dt)));
+        pdflog = diffusion;
     end
-        
 end
-

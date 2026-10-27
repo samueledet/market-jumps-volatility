@@ -1,16 +1,18 @@
 function pdflog = logmertonpdf(r,dt,mu,sigma,lambda,mu_j,sigma_j)
+%LOGMERTONPDF Density of one-period log returns under the Merton (1976) model.
+%   pdflog = LOGMERTONPDF(r,dt,mu,sigma,lambda,mu_j,sigma_j) is a
+%   Poisson mixture of normals: with k jumps in the period, the log return
+%   is normal with mean (mu-sigma^2/2)*dt + k*mu_j and variance
+%   sigma^2*dt + k*sigma_j^2. The sum is truncated at nterm jumps.
+    m = (mu - sigma^2/2)*dt;
     if lambda > 0
         nterm = 100;
-        term = zeros(length(r), nterm);  %matrix 5333*100
-        for k = 1: nterm
-            poisson = (lambda*dt)^k/prod(1:k)*exp(-lambda*dt);
-            normal = 1/sqrt(2*pi*(sigma^2*dt + sigma_j^2*k))*exp(-(r-((mu-sigma^2/2)*dt + mu_j*k)).^2/(2*(sigma^2*dt + sigma_j^2*k)));
-            term(:,k) = poisson*normal;
+        pdflog = zeros(size(r));
+        for k = 0:nterm
+            poisson = (lambda*dt)^k/factorial(k)*exp(-lambda*dt);
+            pdflog = pdflog + poisson*normpdf(r, m + mu_j*k, sqrt(sigma^2*dt + sigma_j^2*k));
         end
-        %pdflog = sum(term,2);
-        pdflog = sum([1/sqrt(2*pi*sigma^2*dt)*exp(-(r-(mu-sigma^2/2)*dt).^2/(2*sigma^2*dt))*exp(-lambda*dt) term], 2);
     else
-        pdflog = 1/sqrt(2*pi*sigma^2)*exp(-(r-(mu-sigma^2/2)*dt).^2/(2*(sigma^2*dt)));
+        pdflog = normpdf(r, m, sigma*sqrt(dt));
     end
 end
-
